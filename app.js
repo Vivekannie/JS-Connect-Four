@@ -14,7 +14,9 @@ var player2Color = 'yellow';
 var tableRow = document.getElementsByTagName('tr');
 var tableData = document.getElementsByTagName('td');
 var playerTurn = document.querySelector('.player-turn');
+const slots = document.querySelectorAll('.slot');
 const resetBtn = document.querySelector('.reset');
+
 
 var currentPlayer = 1;
 playerTurn.textContent = `${player1}'s turn!`

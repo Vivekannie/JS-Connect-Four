@@ -2,19 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    margin-top: 0.5rem;
 }
+
+
 
 .container{
     position: absolute;
-    width: 80%;
-    top: 3rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 600px;
+    height: 520px;
+    top: 5rem;
     background: blue;
+    border: 2px solid black;
+    padding: .5rem;
+
 }
 
 .container table tr td{
     width: 90px;
     height: 80px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 50%;
     background-color: white;
     cursor: pointer;

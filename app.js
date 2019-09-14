@@ -1,15 +1,25 @@
-// var player1 = prompt('Player One: Enter your name. You will be blue.');
+while (!player1){
+    var player1 = prompt('Player One: Enter your name. You will be red.');
+};
 var player1Color = 'red';
 
-// var player2 = prompt('Player Two: Enter your name. You will be red.');
+while (!player2){
+    var player2 = prompt('Player Two: Enter your name. You will be yellow.');
+};
 var player2Color = 'yellow';
 
-var game_active = true;
+// Selectors
+
+
 var tableRow = document.getElementsByTagName('tr');
 var tableData = document.getElementsByTagName('td');
+var playerTurn = document.querySelector('.player-turn');
+const resetBtn = document.querySelector('.reset');
 
+var currentPlayer = 1;
+playerTurn.textContent = `${player1}'s turn!`
 
-console.log('Conor');
+// Log cell coordinates when clicked
 
 for (i = 0; i < tableData.length; i ++){
     tableData[i].addEventListener('click', (e) =>{
@@ -17,7 +27,8 @@ for (i = 0; i < tableData.length; i ++){
     });
 };
 
-var currentPlayer = 1;
+
+// Funtions
 
 function changePlayer(){
     if (currentPlayer === 1){
@@ -35,47 +46,24 @@ function changeColor(e){
     for (i = 5; i > -1; i--){
         if (tableRow[i].children[column].style.backgroundColor == 'white'){
             row.push(tableRow[i].children[column]);
-            row[0].style.backgroundColor = player2Color;
+            if (currentPlayer === 1){
+                row[0].style.backgroundColor = player1Color;
+                playerTurn.textContent = `${player2}'s turn`
+                return currentPlayer = 2;
+            }else{
+                row[0].style.backgroundColor = player2Color;
+                playerTurn.textContent = `${player1}'s turn`;
+                return currentPlayer = 1;
+            }
         };
     }
 }
-
-
-
-
-
 
 Array.prototype.forEach.call(tableData, (cell) => {
     cell.addEventListener('click', changeColor);
     // Set all slots to white for new game.
     cell.style.backgroundColor = 'white';
 })
-
-
-
-function returnColor(rowIndex, colIndex){
-
-}
-
-function checkBottom(colIndex){
-    let colorReport = returnColor(5, colIndex);
-    for (let row = 5; i < tableRow.length; i-- ){
-        colorReport = returnColor(row, colIndex);
-    }
-}
-
-// Selectors
-
-const slots = document.querySelectorAll('.slot');
-const resetBtn = document.querySelector('.reset');
-
-// Functions
-
-
-
-// Event Listeners
-
-// slots.forEach(slot => {slot.addEventListener('click', changeColor)});
 
 
 resetBtn.addEventListener('click', () => {

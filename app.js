@@ -37,7 +37,10 @@ function changeColor(e){
     // Get clicked column index
     let column = e.target.cellIndex;
     let row = [];
-
+    if (drawCheck()){
+        playerTurn.textContent = 'DRAW!';
+        return alert('DRAW!');
+    }
     for (i = 5; i > -1; i--){
         if (tableRow[i].children[column].style.backgroundColor == 'white'){
             row.push(tableRow[i].children[column]);
@@ -65,6 +68,7 @@ function changeColor(e){
             }
         }
     }
+   
 }
 
 Array.prototype.forEach.call(tableData, (cell) => {
@@ -119,6 +123,18 @@ function diagonalCheck2(){
                     return true;
             }
         }
+    }
+}
+
+function drawCheck(){
+    let fullSlot = []
+    for (i=0; i < tableData.length; i++){
+        if (tableData[i].style.backgroundColor !== 'white'){
+            fullSlot.push(tableData[i]);
+        }
+    }
+    if (fullSlot.length === tableData.length-1){
+        return true;
     }
 }
 

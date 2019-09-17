@@ -2,12 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy';
     text-align: center;
     margin-top: 0.5rem;
+   
 }
 
+h1, h3{
+    font-size: 3rem;
+}
 
+body {
+    background-color: #bababa;
+}
 
 .container{
     position: absolute;
@@ -15,7 +22,7 @@
     transform: translate(-50%);
     width: 600px;
     height: 520px;
-    top: 5rem;
+    top: 9rem;
     background: blue;
     border: 2px solid black;
     padding: .5rem;
@@ -42,5 +49,22 @@
     text-align: center;
     padding: 0.3rem;
     border: 1px solid black;
+    background: #ffffff;
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .container{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: 90%;
+        height: 520px;
+        top: 9rem;
+        background: blue;
+        border: 2px solid black;
+        padding: .5rem;
+    
+    }
+    
 }

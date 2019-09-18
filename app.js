@@ -37,10 +37,7 @@ function changeColor(e){
     // Get clicked column index
     let column = e.target.cellIndex;
     let row = [];
-    if (drawCheck()){
-        playerTurn.textContent = 'DRAW!';
-        return alert('DRAW!');
-    }
+
     for (i = 5; i > -1; i--){
         if (tableRow[i].children[column].style.backgroundColor == 'white'){
             row.push(tableRow[i].children[column]);
@@ -50,6 +47,9 @@ function changeColor(e){
                     playerTurn.textContent = `${player1} WINS!!`;
                     playerTurn.style.color = player1Color;
                     return alert(`${player1} WINS!!`);
+                }else if (drawCheck()){
+                    playerTurn.textContent = 'DRAW!';
+                    return alert('DRAW!');
                 }else{
                     playerTurn.textContent = `${player2}'s turn`
                     return currentPlayer = 2;
@@ -60,6 +60,9 @@ function changeColor(e){
                     playerTurn.textContent = `${player2} WINS!!`;
                     playerTurn.style.color = player2Color;
                     return alert(`${player2} WINS!!`);
+                }else if (drawCheck()){
+                    playerTurn.textContent = 'DRAW!';
+                    return alert('DRAW!');
                 }else{
                     playerTurn.textContent = `${player1}'s turn`;
                     return currentPlayer = 1;
@@ -133,7 +136,7 @@ function drawCheck(){
             fullSlot.push(tableData[i]);
         }
     }
-    if (fullSlot.length === tableData.length-1){
+    if (fullSlot.length === tableData.length){
         return true;
     }
 }
